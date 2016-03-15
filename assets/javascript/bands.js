@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var bands = ["Pink Floyd","David Bowie","Neil Young","Joy Division","Psychedelic Furs","The Beatles","Billy Joel"];
+var bands = ["Pink Floyd","David Bowie","Radiohead","Depeche Mode","Neil Young","Joy Division","Psychedelic Furs","The Beatles","Billy Joel"];
 
 
 for (var i = 0;i < bands.length;i++) {
@@ -33,7 +33,7 @@ function showImage() {
 
 $("#bandpic").empty();
 currentBand = $(this).attr("data-name");
-//alert (currentBand);
+
 
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + currentBand + "&api_key=dc6zaTOxFJmzC&limit=8";
 	$.ajax ({
@@ -46,12 +46,12 @@ currentBand = $(this).attr("data-name");
 			rating = $("<p>");
 			still = response.data[i].images.fixed_height_still.url;
 			animated = response.data[i].images.fixed_height.url;
-			pic.addClass("bandphoto");
+			pic.attr("class","bandphoto");
 			pic.attr("src",still);
 			pic.attr("data-still",still);
 			pic.attr("data-animated",animated);
 			pic.attr("data-state","still");
-			rating.html("Rating: " + response.data[i].rating);
+			rating.text("Rating: " + response.data[i].rating);
 			$("#bandpic").append(rating);
 			$("#bandpic").append(pic);
 			if (i == response.data.length - 1) {

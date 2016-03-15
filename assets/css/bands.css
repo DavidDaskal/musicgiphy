@@ -1,16 +1,38 @@
 body {
 	background-color: gray;
 }
+
+#music-form {
+
+	margin: 20px;
+}
+
+
+#addband {
+	margin-top: 10px;
+}
+
+#banddisplay {
+	margin: 20px;
+}
+
+button {
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 5px;
+}
 img {
 	margin:10px;
 	float: left;
+	height: 200px;
+	width:250px;
 	
 }
 
 
 #bandpic {
+	margin-left: 20px;
 	margin-top: 20px;
-	float:left;
 	width: 100%;
 
 
@@ -18,7 +40,9 @@ img {
 
 p {
 	width: 1000px;
+	font-size:14px;
+	font-style: arial;
 	
-	
+
 
 }
