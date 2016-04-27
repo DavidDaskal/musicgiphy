@@ -41,6 +41,7 @@ currentBand = $(this).attr("data-name");
 			method: 'GET'
 	})
 		.done(function(response) {
+			
 			for (i = 0;i<response.data.length;i++) {
 			pic = $("<img>");
 			rating = $("<p>");
@@ -51,13 +52,27 @@ currentBand = $(this).attr("data-name");
 			pic.attr("data-still",still);
 			pic.attr("data-animated",animated);
 			pic.attr("data-state","still");
-			rating.text("Rating: " + response.data[i].rating);
-			$("#bandpic").append(rating);
-			$("#bandpic").append(pic);
+
+			rating.append("Rating: " + response.data[i].rating);
+			ratingdiv = $("<div>");
+			ratingdiv.append(rating);
+			imagediv = $("<div>");
+			imagediv.append(pic);
+			combodiv = $("<div>");
+			combodiv.append(ratingdiv);
+			combodiv.append(imagediv);
+			combodiv.attr("class","combine");
+			$("#bandpic").append(combodiv);
+			
 			if (i == response.data.length - 1) {
-			animationStatus(); } // only works when inside the loop. Not efficient to run each time util all images are populated
+			 } // only works when inside the loop. Not efficient to run each time util all images are populated
 				
-				}  //end of for loop to show and assign data to images
+				} 
+
+				animationStatus();
+
+
+				 //end of for loop to show and assign data to images
 					});
 
 		
